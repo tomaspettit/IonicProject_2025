@@ -1,0 +1,7 @@
+{
+  "name": "myRSA_Helper",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
