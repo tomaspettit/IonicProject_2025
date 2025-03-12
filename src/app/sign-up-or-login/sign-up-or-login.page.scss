@@ -1,0 +1,43 @@
+
+  
+  ion-button{
+    --background: orange;
+    --background-hover: red;
+    --background-activated: red;
+    --background-focused: red;
+    border-radius: 50%;
+    width: 390px;
+    height: 100px;
+    margin-top: 60px;
+    font-size: 35px;
+    text-align: center;
+  }
+
+  ion-content::part(background) {
+    background: #cde7e4;
+  }
+
+  div{
+    font-size: 20px;
+  }
+
+  #topStyle{
+    text-align: center;
+    margin-top: 125px;
+  }
+
+  #bottomStyle{
+    width: 430px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    background:rgba(166, 238, 250, 71%);
+    margin-top: 100px;
+  }
+
+  ion-icon{
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+    margin-left: 45px;
+  }

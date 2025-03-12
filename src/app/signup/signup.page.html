@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div (change)="onInputChanged()">
+    
+    <!-- Email -->
+    <br><ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" helper-text="
+    Please enter an email address" error-text="Please enter your email address correctly"></ion-input><br>
+
+    <!-- Password -->
+    <ion-input [(ngModel)]="inputPassword" type="password" label="Password" label-placement="floating" fill="outline"></ion-input><br>
+
+    <!-- Full Name-->
+    <ion-input [(ngModel)]="inputName" label="Full Name" label-placement="floating" fill="outline"></ion-input><br>
+
+    <!-- Address-->
+    <ion-textarea [(ngModel)]="inputAddress" label="Address" label-placement="floating" fill="outline"></ion-textarea><br>
+
+    <!-- Eircode -->
+    <ion-input [(ngModel)]="inputEircode" label="Eircode" label-placement="floating" fill="outline"></ion-input><br>
+
+    <!-- Date of Birth -->
+    <ion-input [(ngModel)]="inputDOB" type="date"></ion-input><br>
+
+    <!-- Phone Number-->
+    <ion-input [(ngModel)]="inputPhoneNo" type="tel" label="Phone Number" label-placement="floating" fill="outline"></ion-input><br>
+
+    <!-- What is the Category for what you driven -->
+    <ion-input [(ngModel)]="inputCategory" label="Category" label-placement="floating" fill="outline"></ion-input><br>
+
+    <!-- What is your PPSN -->
+    <ion-input [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" fill="outline"></ion-input><br>
+
+    <ion-button (click)="back()">Back</ion-button>
+    <ion-button [disabled]="signUpDisabled" (click)="register()">Sign Up</ion-button>
+  </div>
+</ion-content>

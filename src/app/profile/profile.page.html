@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Profile</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><b>Name: </b>{{yourName}}</p>
+      <p><b>Email: </b>{{yourEmail}}</p>
+      <p><b>Date Of Birth: </b>{{yourDob}}</p>
+      <p><b>PPSN: </b>{{yourPPSN}}</p>
+      <p><b>Phone Number: </b>{{yourPhoneNo}}</p>
+      <p><b>Address: </b>{{yourAddress}}</p>
+      <p><b>Eircode: </b>{{yourEircode}}</p>
+      <p><b>Category: </b>{{yourCategory}}</p>
+    </ion-card-content>
+  </ion-card>
+    
+  <ion-button (click)="backButton()">Back</ion-button>
+
+</ion-content>

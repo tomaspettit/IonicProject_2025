@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <h2 class="movingRight">Log in</h2>
+  <p class="movingRight">with your MyRoadSafety account</p>
+
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Important</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        If you dont have an account, please <a (click)="register()" style="text-decoration: none;">register</a> first.
+      </ion-card-content>
+    </ion-card><br>
+  </div>
+  
+  <div (change)="onInputChanged()">
+    <ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" 
+    helper-text="Please enter an email address" error-text="Invalid Email" inputmode="email" clear-input="true"></ion-input><br><br>
+
+    <ion-input [(ngModel)]="inputPassword" type="password" label="Password" label-placement="floating" fill="outline"
+    inputmode="email"></ion-input><br>
+
+    <ion-button [disabled]="loginDisabled" (click)="loggedIn()">Login</ion-button><br><br>
+
+    <a (click)="forgotEmail()" class="styleLink">Forget Email</a>
+    <a (click)="forgotPassword()" class="styleLink2">Forget Password</a><br><br>
+    <h1 style="text-align: center;">OR</h1>
+    <ion-button (click)="register()" color="light">Register</ion-button>
+  </div>
+
+  <div id="bottomStyle">
+    <h2>Contact</h2>
+    <p>If you have any questions, email 
+    me to:</p>
+    <p>Email: G00419414&#64;atu.ie</p>
+    <ion-icon name="logo-instagram" (click)="onInstagram()" style="color:rgba(255, 0, 0, 0.5);"></ion-icon>
+      <ion-icon name="logo-facebook" (click)="onFacebook()" style="color:blue;"></ion-icon>
+    <ion-icon name="logo-github" (click)="onGitHub()"></ion-icon>
+    </div>
+</ion-content>

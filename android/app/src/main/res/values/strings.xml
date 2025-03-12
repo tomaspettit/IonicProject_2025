@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">myRSA_Helper</string>
+    <string name="title_activity_main">myRSA_Helper</string>
+    <string name="package_name">push.notification.myrsa.helper</string>
+    <string name="custom_url_scheme">push.notification.myrsa.helper</string>
+</resources>

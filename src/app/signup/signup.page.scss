@@ -1,0 +1,24 @@
+ion-input{
+    margin-top: 10px;
+    width: 50%;
+    background-color: white;
+}
+
+ion-content::part(background) {
+    background: #1af1d8;
+  }
+
+  ion-button{
+    --background: orange;
+    --background-hover: red;
+    --background-activated: red;
+    --background-focused: red;
+    border-radius: 50%;
+    width: 30%;
+    margin-top: 20px;
+  }
+
+  ion-textarea{
+    background-color: white;
+    width: 215px;
+  }

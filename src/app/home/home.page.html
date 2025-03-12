@@ -1,20 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    
+      <div>
+        <h1>Hello {{yourName}} & Welcome to RSA Helper</h1>
+        <p>Here you can check if you passed your driving test or not.</p>
+      </div>
+    
+        <!-- Grade Faults -->
+        <div id="div1">
+          <h3 style="text-decoration: underline;">Grade Faults:</h3>
+          <ul>
+            <li><b>1 or more grade 3 faults</b> (Pink Area, Dangerous/Potentially Dangerous or total disregard of traffic controls)</li>
+            <li><b>4  of the same grade 2 faults for a single aspect</b> (Blue Area, More Serious faults)</li>
+            <li><b>6 or more grade 2 faults under the same heading</b> (Blue Area, More Serious faults)</li>
+            <li><b>A total of 9 or more grade 2 faults overall</b> (Blue Area, More Serious faults)</li>
+          </ul>
+        </div>
+    
+        <!-- Hints -->
+        <div id="div2">
+          <h3 style="text-decoration: underline;">Hints:</h3>
+          <ul>
+            <li><b>1 or more grade 3 faults</b> (Pink Area, Dangerous/Potentially Dangerous or total disregard of traffic controls)</li>
+            <li><b>4  of the same grade 2 faults for a single aspect</b> (Blue Area, More Serious faults)</li>
+            <li><b>6 or more grade 2 faults under the same heading</b> (Blue Area, More Serious faults)</li>
+            <li><b>A total of 9 or more grade 2 faults overall</b> (Blue Area, More Serious faults)</li>
+          </ul>
+        </div>
+    
+        <div>
+          <ion-button (click)="onProfile()">
+            <ion-icon slot="start" name="person-outline"></ion-icon>
+            My Profile
+          </ion-button>
+        <ion-button (click)="clickResult()">Result</ion-button>
+        <ion-button (click)="logOut()" color="light">Log Out</ion-button>
+        </div>
+    
+        <!-- Contact -->
+        <div id="bottomStyle">
+          <h2>Contact</h2>
+        <p>If you have any questions, email 
+          me to:</p>
+          <p>Email: G00419414&#64;atu.ie</p>
+          <ion-icon name="logo-instagram" (click)="onInstagram()" color="rgba(255, 0, 0, 0,5)"></ion-icon>
+          <ion-icon name="logo-facebook" (click)="onFacebook()" color="rgb(0, 0, 255)"></ion-icon>
+          <ion-icon name="logo-github" (click)="onGitHub()"></ion-icon>
+          </div>
+    </ion-content>

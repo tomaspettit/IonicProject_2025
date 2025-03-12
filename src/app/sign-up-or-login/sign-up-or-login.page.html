@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="topStyle">
+    <h1 style="margin-top: -100px; font-size: 50px;">Sign Up or Log In</h1>
+    <ion-button (click)="onSignUp()" size="large">
+      <ion-icon slot="start" name="person-outline" style="margin-left: -100px; color:black;"></ion-icon>
+      Sign Up</ion-button><br>
+    <h1 style="font-size: 50px;">OR</h1>
+    <ion-button (click)="onLogIn()" size="large" color="light">
+      <ion-icon slot="start" name="log-in-outline" style="margin-left: -100px; color:black;"></ion-icon>
+      Log In</ion-button>
+  </div>
+
+  <div id="bottomStyle">
+    <h2>Contact</h2>
+    <p>If you have any questions, email 
+    me to:</p>
+    <p>Email: G00419414&#64;atu.ie</p>
+    <ion-icon name="logo-instagram" (click)="onInstagram()" style="color:rgba(255, 0, 0, 0.5);"></ion-icon>
+      <ion-icon name="logo-facebook" (click)="onFacebook()" style="color:blue;"></ion-icon>
+    <ion-icon name="logo-github" (click)="onGitHub()"></ion-icon>
+    </div>
+</ion-content>
