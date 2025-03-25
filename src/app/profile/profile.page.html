@@ -4,23 +4,59 @@
       <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Profile</ion-card-title>
-    </ion-card-header>
 
+  
+    <h1><b>My Profile</b></h1>
+
+    <!-- Personal Information -->
+    <h2><b>Personal Information</b></h2>
+  
+  <div>
+  <ion-card>
+
+    <!-- Name, Date of Birth, PPSN, Driver Number, and Email Address -->
     <ion-card-content>
-      <p><b>Name: </b>{{yourName}}</p>
-      <p><b>Email: </b>{{yourEmail}}</p>
-      <p><b>Date Of Birth: </b>{{yourDob}}</p>
-      <p><b>PPSN: </b>{{yourPPSN}}</p>
-      <p><b>Phone Number: </b>{{yourPhoneNo}}</p>
-      <p><b>Address: </b>{{yourAddress}}</p>
-      <p><b>Eircode: </b>{{yourEircode}}</p>
-      <p><b>Category: </b>{{yourCategory}}</p>
+      <p class="profileHeading"><b>Name: </b>{{yourName}}</p>
+      <p class="profileHeading"><b>Date Of Birth: </b>{{yourDob}}</p>
+      <p class="profileHeading"><b>PPSN: </b>{{yourPPSN}}</p>
+      <p class="profileHeading"><b>Driver Number: </b>{{yourDriverNo}}</p>
+      <p class="profileHeading"><b>Email Address: </b>{{yourEmail}}</p>
     </ion-card-content>
   </ion-card>
+  </div>
+
+  <!-- Address and Mobile Details -->
+  <br><h1><b>Address and Mobile Details</b></h1>
+
+  <div>
+  <ion-card>
+
+    <!-- Phone Number, Address, and Eircode -->
+    <ion-card-content>
+      <p class="profileHeading"><b>Phone Number: </b>{{yourPhoneNo}}</p>
+      <p class="profileHeading"><b>Address: </b>{{yourAddress}}, <br>{{yourEircode}}</p>
+    </ion-card-content>
+  </ion-card>
+  </div>
     
-  <ion-button (click)="backButton()">Back</ion-button>
+  <!-- Back Button -->
+  <ion-button [routerLink]="['/home']" shape="round" color="light">
+    <ion-icon slot="start" name="arrow-back-outline" class="profileIcons"></ion-icon>Back
+  </ion-button>
+
+  <!-- Log Out Button -->
+  <ion-button [routerLink]="['/loading']" shape="round" style="--background:orange;">
+    <ion-icon slot="start" name="log-out-outline" class="profileIcons"></ion-icon>Log Out
+  </ion-button>
+
+  <!-- Contact -->
+  <div id="bottomStyle">
+    <h2>Contact</h2>
+    <p>If you have any questions, email me to:</p>
+    <p>Email: G00419414&#64;atu.ie</p>
+    <ion-icon name="logo-instagram" (click)="onInstagram()" style="color: rgba(255, 0, 0, 0.5)" class="contactIcon"></ion-icon>
+    <ion-icon name="logo-facebook" (click)="onFacebook()" style="color: rgb(0, 0, 255)" class="contactIcon"></ion-icon>
+    <ion-icon name="logo-github" (click)="onGitHub()" class="contactIcon"></ion-icon>
+  </div>
 
 </ion-content>

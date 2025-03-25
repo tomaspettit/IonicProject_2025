@@ -6,36 +6,63 @@
   </ion-header>
 
   <div (change)="onInputChanged()">
-    
-    <!-- Email -->
-    <br><ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" helper-text="
-    Please enter an email address" error-text="Please enter your email address correctly"></ion-input><br>
+    <ion-card>
+      <h1 style="font-weight: bold;">Sign In</h1>
+      <p>create your own MyRoadSafety account</p>
 
-    <!-- Password -->
-    <ion-input [(ngModel)]="inputPassword" type="password" label="Password" label-placement="floating" fill="outline"></ion-input><br>
+      <!-- Email -->
+      <br><ion-input id="inputStyle" [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" helper-text="
+      Please enter an email address" error-text="Please enter your email address correctly" ngModel email placeholder="Enter your Email"></ion-input><br>
 
-    <!-- Full Name-->
-    <ion-input [(ngModel)]="inputName" label="Full Name" label-placement="floating" fill="outline"></ion-input><br>
+      <!-- Password -->
+      <ion-input id="inputStyle" [(ngModel)]="inputPassword" type="password" label="Password" label-placement="floating" 
+      fill="outline" [counter]="true" maxlength="20" placeholder="Enter your Password"></ion-input><br>
 
-    <!-- Address-->
-    <ion-textarea [(ngModel)]="inputAddress" label="Address" label-placement="floating" fill="outline"></ion-textarea><br>
+      <!-- Full Name-->
+      <ion-input id="inputStyle" [(ngModel)]="inputName" label="Full Name" label-placement="floating" 
+      fill="outline" placeholder="Enter your Name"></ion-input><br>
 
-    <!-- Eircode -->
-    <ion-input [(ngModel)]="inputEircode" label="Eircode" label-placement="floating" fill="outline"></ion-input><br>
+      <!-- Address-->
+      <ion-textarea id="inputStyle" [(ngModel)]="inputAddress" label="Address" label-placement="floating" 
+      fill="outline" placeholder="Enter your Address"></ion-textarea><br>
 
-    <!-- Date of Birth -->
-    <ion-input [(ngModel)]="inputDOB" type="date"></ion-input><br>
+      <!-- Eircode -->
+      <ion-input id="inputStyle" [(ngModel)]="inputEircode" label="Eircode" label-placement="floating" 
+      fill="outline" placeholder="Enter your Eircode"></ion-input><br>
 
-    <!-- Phone Number-->
-    <ion-input [(ngModel)]="inputPhoneNo" type="tel" label="Phone Number" label-placement="floating" fill="outline"></ion-input><br>
+      <!-- Date of Birth -->
+      <ion-input id="inputStyle" [(ngModel)]="inputDOB" type="date"></ion-input><br>
 
-    <!-- What is the Category for what you driven -->
-    <ion-input [(ngModel)]="inputCategory" label="Category" label-placement="floating" fill="outline"></ion-input><br>
+      <!-- Phone Number-->
+      <ion-input id="inputStyle" [(ngModel)]="inputPhoneNo" type="tel" label="Phone Number" label-placement="floating" 
+      fill="outline" placeholder="Enter your Phone Number"></ion-input><br>
 
-    <!-- What is your PPSN -->
-    <ion-input [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" fill="outline"></ion-input><br>
+      <!-- What is the Category for what you driven -->
+      <ion-input id="inputStyle" [(ngModel)]="inputCategory" label="Category" label-placement="floating" 
+      fill="outline" placeholder="Enter your Category"></ion-input><br>
 
-    <ion-button (click)="back()">Back</ion-button>
-    <ion-button [disabled]="signUpDisabled" (click)="register()">Sign Up</ion-button>
+      <!-- What is your PPSN -->
+      <ion-input id="inputStyle" [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" 
+      fill="outline" placeholder="Enter your PPSN"></ion-input><br>
+
+      <!-- What is your Driver Number -->
+      <ion-input id="inputStyle" [(ngModel)]="inputDriverNo" label="Driver Number" label-placement="floating" 
+      fill="outline" placeholder="Enter your Driver Number"></ion-input><br>
+    </ion-card>
+  </div>
+
+  <div>
+    <!-- Back button for which page do you want to go back, like Sign Up or Login page or ONLY Login Page-->
+    <ion-button id="toast-back-to-where" shape="round" color="light">
+      <ion-icon slot="start" name="arrow-back-outline" style="margin-left: -80px; color:black;"></ion-icon>Back
+    </ion-button>
+    <ion-toast trigger="toast-back-to-where" message="Back to Where?" swipeGesture="vertical" [duration]="5000" 
+    [buttons]="toastBackButtons" icon="help-circle-outline" class="custom-toast"></ion-toast>
+
+    <!-- Sign Up Button: after put down all the input boxes, your account has been 
+     create from the storage so you can log in to your account-->
+    <ion-button [disabled]="signUpDisabled" (click)="register()" shape="round">
+      <ion-icon slot="start" name="person-outline" style="margin-left: -80px; color:black;"></ion-icon>Sign Up
+    </ion-button>
   </div>
 </ion-content>

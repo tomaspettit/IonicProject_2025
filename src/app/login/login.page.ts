@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonIcon} from '@ionic/angular/standalone';
@@ -6,7 +7,7 @@ import { IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/ang
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { addIcons } from 'ionicons';
-import { logoInstagram, logoFacebook, logoGithub } from 'ionicons/icons';
+import { logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline } from 'ionicons/icons';
 import { Browser } from '@capacitor/browser';
 
 
@@ -15,62 +16,60 @@ import { Browser } from '@capacitor/browser';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonButton
+  imports: [RouterLinkWithHref, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonButton
     , IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonIcon
   ]
 })
 export class LoginPage{
-  myEmail: string = '';
-  myPassword: string = '';
-
-  loginDisabled: boolean = true;
+  // Variables
   inputEmail: string = '';
   inputPassword: string = '';
 
-  constructor(private router: Router, private storage: Storage) { 
-    this.storage.create();
-    addIcons({logoInstagram, logoFacebook, logoGithub});
+  // Storage Variables
+  myEmail: string = '';
+  myPassword: string = '';
+
+  // Disable Login Button by Default
+  loginDisabled: boolean = true;
+
+  constructor(private router: Router, private storage: Storage) {
+    // Add icons (social media login buttons)
+    addIcons({ logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline });
   }
 
-  async onViewWillEnter(){
-    this.myEmail = await this.storage.get("email") || '';
-    this.myPassword = await this.storage.get("password") || '';
-    this.onInputChanged();
+  // Get stored email and password from storage
+  async ionViewWillEnter() {
+    await this.storage.create();
+    this.myEmail = await this.storage.get("email");
+    this.myPassword = await this.storage.get("password");
   }
 
-  onInputChanged(){
+  // Input validation for email and password
+  onInputChanged() {
     const emailValid = this.inputEmail.includes('@');
-    const passwordValid = this.inputPassword.length >= 8; // Check for at least 8 characters
+    const passwordValid = this.inputPassword.length >= 5; // Adjust password strength requirements as needed
     this.loginDisabled = !(emailValid && passwordValid);
   }
-  
-  // Navigate to home page
-  loggedIn(){ 
-    if(this.inputEmail == this.myEmail && this.inputPassword == this.myPassword){
-    this.router.navigate(['/home']);
-    }else if(this.inputEmail == null || this.inputPassword == null){
+
+  // Attempt login
+  async loggedIn() {
+    console.log('Input Email:', this.inputEmail);
+    console.log('Input Password:', this.inputPassword);
+
+    // Secure password check (comparison to stored credentials)
+    if (this.inputEmail !== this.myEmail && this.inputPassword !== this.myPassword) {
       alert('Invalid email or password. Please try again.');
+      this.loginDisabled = false; // Allow retry after failure
+    } else {
+      console.log('Login successful, navigating to home');
+      this.router.navigate(['/home']);
+      // Optionally clear the input fields
+      this.inputEmail = '';
+      this.inputPassword = '';
     }
-    else{
-      alert('Invalid email or password. Please try again.');
-    }
   }
 
-  // Navigate to forgot email page
-  forgotEmail(){
-    this.router.navigate(['/forgot-email']); 
-  }
-
-  // Navigate to forgot password page
-  forgotPassword(){
-   this.router.navigate(['/forgot-password']);
-  }
-
-  // Navigate to sign up page
-  register(){
-    this.router.navigate(['/signup']);
-  }
-
+  // Browser links
   onInstagram(){
     Browser.open({ url: 'https://www.instagram.com/' });
   }

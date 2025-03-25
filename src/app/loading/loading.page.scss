@@ -5,6 +5,10 @@ ion-progress-bar{
     border-radius: 7.5px;
 }
 
+ion-content::part(background) {
+  background: #fbfbfb;
+}
+
 .container {
     display: flex;
     flex-direction: column;

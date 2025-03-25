@@ -5,9 +5,55 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="clickResult()">Result</ion-button>
+  <!-- Form of your driving test result -->
+  <div>
+    <ion-card class="resultCardStyle">
+      <ion-card-title style="text-decoration: underline;">Send the Results</ion-card-title>
+
+      <!-- Name-->
+      <ion-input [(ngModel)]="inputName" label="Name" label-placement="floating" fill="outline"></ion-input><br>
+
+      <!-- What is your Driver Number -->
+      <ion-input [(ngModel)]="inputDriverNo" label="Driver Number" label-placement="floating" fill="outline"></ion-input><br>
+
+      <!-- Date of Birth -->
+      <ion-input [(ngModel)]="inputDOB" type="date"></ion-input><br>
+
+      <!-- Email -->
+      <br><ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" helper-text="
+      Please enter an email address" error-text="Please enter your email address correctly" ngModel email></ion-input><br>
+
+      <!-- What is the Category for what you driven -->
+      <ion-input [(ngModel)]="inputCategory" label="Category" label-placement="floating" fill="outline"></ion-input><br>
+
+      <!-- What is your PPSN -->
+      <ion-input [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" fill="outline"></ion-input><br>
+
+      <!-- What is your Driving Test Centre location when your doing your driving test -->
+      <ion-input [(ngModel)]="inputDTC" label="Driving Test Centre" label-placement="floating" fill="outline"></ion-input><br>
+
+      <!-- Image Link for getting your results -->
+      <!-- Use this website: https://sigmawire.net/image-to-url-converter to turn your image into a url image link, 
+      copy it and paste it in the input Image Link so the your image will be displayed -->
+      <ion-input [(ngModel)]="inputImageLink" name="inputImageLink" label="Image Link" label-placement="floating" 
+        fill="outline">
+      </ion-input><br>
+
+      <!-- Explain for what mistakes did you made when doing your driving test -->
+      <ion-textarea style="color:black;" placeholder="Explanation of how did you make mistakes during your driving test"></ion-textarea>
+
+    </ion-card>
+  </div>  
 
   <div>
-    <ion-button (click)="backButton()" color="light">Back</ion-button>
+    <img *ngIf="inputImageLink && isValidImageUrl(inputImageLink)" [src]="inputImageLink" alt="Result Image" style="width: 100%; margin-top: 20px;" />
+
+    <!-- Back to the Home Page -->
+    <ion-button [routerLink]="['/home']" color="light" shape="round">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>Back
+    </ion-button>
+
+    <!-- Your Results has been send and back to the Home Page -->
+    <ion-button (click)="clickResult()" shape="round" style="--background: orange;">Submit</ion-button>
   </div>
 </ion-content>

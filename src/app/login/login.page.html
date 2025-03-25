@@ -5,8 +5,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <h2 class="movingRight">Log in</h2>
-  <p class="movingRight">with your MyRoadSafety account</p>
+  <div class="movingRight">
+    <h2>Log in</h2>
+    <p>with your MyRoadSafety account</p>
+  </div>
 
   <div>
     <ion-card>
@@ -15,33 +17,50 @@
       </ion-card-header>
     
       <ion-card-content>
-        If you dont have an account, please <a (click)="register()" style="text-decoration: none;">register</a> first.
+        <!-- If you dont have an account, please register first. -->
+        If you dont have an account, please <a [routerLink]="['/signup']">register</a> first.
       </ion-card-content>
     </ion-card><br>
   </div>
   
+  <!-- Login Form -->
   <div (change)="onInputChanged()">
-    <ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" 
-    helper-text="Please enter an email address" error-text="Invalid Email" inputmode="email" clear-input="true"></ion-input><br><br>
+    <ion-card color="success">
 
-    <ion-input [(ngModel)]="inputPassword" type="password" label="Password" label-placement="floating" fill="outline"
-    inputmode="email"></ion-input><br>
+      <!-- Email and Password Input -->
+    <br><ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" 
+    helper-text="Please enter an email address" error-text="Invalid Email" inputmode="email" clear-input="true" ngModel email>
+    </ion-input><br><br>
 
-    <ion-button [disabled]="loginDisabled" (click)="loggedIn()">Login</ion-button><br><br>
+    <ion-input [(ngModel)]="inputPassword" type="password" label="Password" label-placement="floating" fill="outline" [counter]="true" maxlength="20"></ion-input><br>
+  </ion-card>
 
-    <a (click)="forgotEmail()" class="styleLink">Forget Email</a>
-    <a (click)="forgotPassword()" class="styleLink2">Forget Password</a><br><br>
+    <!-- Login Button -->
+    <ion-button [disabled]="loginDisabled" (click)="loggedIn()" shape="round">
+      <ion-icon slot="start" name="log-in-outline" style="margin-left: -100px; color:black;"></ion-icon>Login
+    </ion-button><br><br>
+
+    <!-- Forget Email and Password -->
+    <a [routerLink]="['/forgot-email']" class="styleLink">Forget Email</a>
+    <a [routerLink]="['/forgot-password']" class="styleLink2">Forget Password</a><br><br>
+
     <h1 style="text-align: center;">OR</h1>
-    <ion-button (click)="register()" color="light">Register</ion-button>
+    <!-- Register Button -->
+    <ion-button [routerLink]="['/signup']" color="light" shape="round">
+      <ion-icon slot="start" name="person-outline" style="margin-left: -50px; color:black;"></ion-icon>Register
+    </ion-button>
   </div>
 
+  <!-- Contact -->
   <div id="bottomStyle">
     <h2>Contact</h2>
     <p>If you have any questions, email 
     me to:</p>
     <p>Email: G00419414&#64;atu.ie</p>
-    <ion-icon name="logo-instagram" (click)="onInstagram()" style="color:rgba(255, 0, 0, 0.5);"></ion-icon>
-      <ion-icon name="logo-facebook" (click)="onFacebook()" style="color:blue;"></ion-icon>
-    <ion-icon name="logo-github" (click)="onGitHub()"></ion-icon>
+    
+    <!-- Social Media -->
+    <ion-icon name="logo-instagram" (click)="onInstagram()" style="color:rgba(255, 0, 0, 0.5);" class="contactIcon"></ion-icon>
+    <ion-icon name="logo-facebook" (click)="onFacebook()" style="color:blue;" class="contactIcon"></ion-icon>
+    <ion-icon name="logo-github" (click)="onGitHub()" class="contactIcon"></ion-icon>
     </div>
 </ion-content>

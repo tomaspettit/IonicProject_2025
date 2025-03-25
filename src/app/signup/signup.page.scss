@@ -1,24 +1,36 @@
-ion-input{
-    margin-top: 10px;
-    width: 50%;
-    background-color: white;
+ion-card{
+  background-color: #63F6F9;
 }
 
-ion-content::part(background) {
-    background: #1af1d8;
-  }
+#inputStyle{
+  margin-top: 30px;
+}
 
-  ion-button{
-    --background: orange;
-    --background-hover: red;
-    --background-activated: red;
-    --background-focused: red;
-    border-radius: 50%;
-    width: 30%;
-    margin-top: 20px;
-  }
+ion-button{
+  --background: orange;
+  width: 180px;
+  height: 50px;
+  margin-left: 30px;
+}
 
-  ion-textarea{
-    background-color: white;
-    width: 215px;
-  }
+ion-icon{
+  width: 30px;
+  height: 30px;
+  padding: 20px;
+}
+
+ion-toast.custom-toast {
+  --background: rgb(248, 189, 80);
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #4b4a50;
+}
+
+ion-toast.custom-toast::part(message) {
+  font-style: italic;
+}
+
+ion-toast.custom-toast::part(button) {
+  border-left: 1px solid #373232;
+  color: white;
+  font-size: 15px;
+}

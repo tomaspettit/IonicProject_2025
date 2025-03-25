@@ -1,9 +1,13 @@
 import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonTextarea} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonTextarea, 
+  IonCard, IonIcon, IonToast} from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+import { addIcons } from 'ionicons';
+import { arrowBackOutline, personOutline, helpCircleOutline} from 'ionicons/icons';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,12 +15,15 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./signup.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonButton
-    , IonTextarea
+    , IonTextarea, IonCard, IonIcon, IonToast
   ]
 })
 export class SignupPage{
+
+  // Disable sign up button until all fields are filled
   signUpDisabled: boolean = true;
 
+  // Input fields & set storage
   inputEmail: string = '';
   inputPassword: string = '';
   inputName: string = '';
@@ -26,56 +33,91 @@ export class SignupPage{
   inputCategory: string = '';
   inputPPSN: string = '';
   inputDOB: string = '';
-  
+  inputDriverNo: string = '';
 
-  constructor(private router: Router, private storage: Storage) { }
+  //Same Email
+  myEmail:string = '';
 
+  constructor(private router: Router, private storage: Storage) { 
+    // Add icons to the app
+    addIcons({ arrowBackOutline, personOutline, helpCircleOutline });
+  }
+
+  // Create storage
   async ionViewWillEnter(){
-    this.storage.create();
-    this.onInputChanged();
+    await this.storage.create();
+    this.myEmail = await this.storage.get('email');
   }
 
-  onInputChanged(){
+  // Check if all fields are filled and valid
+  onInputChanged() {
+    // Email validation
     const emailValid = this.inputEmail.includes('@');
-    const passwordValid = this.inputPassword.length >= 8; // Check for at least 8 characters
-    const nameValid = this.inputName.length >= 2; // Check for at least 2 character
-    const phoneNoValid = this.inputPhoneNo.length >= 5; // Check for at least 5 character
-    const addressValid = this.inputAddress.length >= 5; // Check for at least 5 character
-    const eircodeValid = this.inputEircode.length >= 2; // Check for at least 2 character
-    const carValid = this.inputCategory.length >= 1; // Check for at least 1 character
-    const dobValid = this.inputDOB.length >= 7; // Check for at least 7 character
-    const confirmPPSNValid = this.inputPPSN.length >= 5; // Check for at least 5 character
-    this.signUpDisabled = !(emailValid && passwordValid && nameValid 
-      && phoneNoValid && addressValid && eircodeValid && carValid && dobValid && confirmPPSNValid);
-    }
+  
+    // Password validation (at least one uppercase, one digit, and one special character)
+    const passwordValid = this.inputPassword.length >= 4;
+  
+    // Name validation (at least 2 characters)
+    const nameValid = this.inputName.length >= 2;
+  
+    // Phone number validation (only numbers and at least 10 digits, you can adjust the length as per your requirement)
+    const phoneNoValid = this.inputPhoneNo.length >= 5;
+  
+    // Address validation (at least 5 characters)
+    const addressValid = this.inputAddress.length >= 5;
+  
+    // Eircode validation (a common Irish Eircode pattern example, you can modify this if needed)
+    const eircodeValid = this.inputEircode.length >= 3;
+  
+    // Car category validation (you can modify this based on the exact values expected)
+    const carValid = this.inputCategory.length == 1;
+  
+    // Date of birth validation (in DD/MM/YYYY format)
+    const dobValid = this.inputDOB.length >= 6;
+  
+    // PPSN validation (check for a length of 5 or specific format if applicable)
+    const confirmPPSNValid = this.inputPPSN.length >= 5;
+  
+    // Driver number validation (at least 4 characters)
+    const driverNoValid = this.inputDriverNo.length >= 4;
+  
+    // Enable the sign-up button if all validations pass
+    this.signUpDisabled = !(emailValid && passwordValid && nameValid && phoneNoValid && addressValid &&
+      eircodeValid && carValid && dobValid && confirmPPSNValid && driverNoValid);
+  }
+  
 
-  // Navigate to login page to check if user is registered
+  // Register the user and store their data
   async register(){
-    await this.storage.set("email", this.inputEmail);
-    await this.storage.set("password", this.inputPassword);
-    await this.storage.set("name", this.inputName);
-    await this.storage.set("phoneNo", this.inputPhoneNo);
-    await this.storage.set("address", this.inputAddress);
-    await this.storage.set("eircode", this.inputEircode);
-    await this.storage.set("category", this.inputCategory);
-    await this.storage.set("dob", this.inputDOB);
-    await this.storage.set("ppsn", this.inputPPSN);
-  
-    this.router.navigate(['/login']).then(() => {
-      this.clearInputs();
-    }).catch((error) => {
-      console.error('Navigation error:', error);
-    });
+    if(this.inputEmail == this.myEmail){
+      alert("Same Email. Try a different Email");
+      this.inputEmail = '';
+    }else{
+      // Store user data
+      await this.storage.set("email", this.inputEmail);
+      await this.storage.set("password", this.inputPassword);
+      await this.storage.set("name", this.inputName);
+      await this.storage.set("phoneNo", this.inputPhoneNo);
+      await this.storage.set("address", this.inputAddress);
+      await this.storage.set("eircode", this.inputEircode);
+      await this.storage.set("category", this.inputCategory);
+      await this.storage.set("dob", this.inputDOB);
+      await this.storage.set("ppsn", this.inputPPSN);
+      await this.storage.set("driverNo", this.inputDriverNo);
+
+      console.log(this.inputEmail);
+      console.log(this.inputPassword);
+
+      // Navigate to the login page
+      this.router.navigate(['/login']).then(() => {
+        this.clearInputs();  // Clear input fields after registration
+      }).catch((error) => {
+        console.error('Navigation error:', error);
+      });
+    }
   }
-  
-  back(){
-    this.router.navigate(['/login']).then(() => {
-      this.clearInputs();
-    }).catch((error) => {
-      console.error('Navigation error:', error);
-    });
-  }
-  
+
+  // Clear input fields
   clearInputs() {
     this.inputName = '';
     this.inputEmail = '';
@@ -86,5 +128,25 @@ export class SignupPage{
     this.inputCategory = '';
     this.inputDOB = '';
     this.inputPPSN = '';
+    this.inputDriverNo = '';
   }
+
+  // After click the back button: it will show which of those two buttons would you like to go back from?
+  public toastBackButtons = [
+    {
+      text: 'Sign Up or Login',
+      handler: () => {
+        this.router.navigate(['/sign-up-or-login']);
+        this.clearInputs();
+      },
+    },
+    {
+      text: 'Login',
+      handler: () => {
+        this.router.navigate(['/login']);
+        this.clearInputs();
+      },
+    },
+  ]
+  
 }

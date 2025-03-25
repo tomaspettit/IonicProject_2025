@@ -1,11 +1,19 @@
-ion-content::part(background) {
-    background: #cde7e4;
-  }
-
-  ion-input{
+ion-input{
     width: 90%;
     margin-left: 15px;
     background-color: white;
+    margin-top: 45px;
+}
+
+.fe_CardStyle{
+  background-color: #86E8AC;
+  width: 92%;
+  height: 522px;
+}
+
+ion-button{
+  width: 180px;
+  margin-left: 30px;
 }
 
 h2{
@@ -20,12 +28,10 @@ margin-top: 100px;
   color: orange;
   margin-top: 20px;
   margin-left: 10px;
-  width: 45%;
 }
 
 #styleSubmitButton{
   --background: orange;
   margin-top: 20px;
   margin-right: 10px;
-  width: 45%;
 }

@@ -5,20 +5,40 @@
     </ion-toolbar>
   </ion-header>
 
-  <h2><b>Forgot Email</b></h2>
-  <p>Hint: This is the email address you used to register on MyRoadSafety</p>
+  <!-- Forgot Email Form -->
   <div (change)="checkInputChanged()">
+    <ion-card class="fe_CardStyle">
+      <ion-card-header>
+        <ion-card-title>Forgot Email</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Hint: This is the email address you used to register on MyRoadSafety
+        <p>{{myPPSN}}, {{myDOB}}, {{myNewEmail}}</p>
+      </ion-card-content>
+
     <!-- What is your PPSN -->
-    <ion-input [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" fill="outline"></ion-input><br>
+    <ion-input [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" 
+    fill="outline" placeholder="Enter your same PPSN"></ion-input><br>
 
     <!-- Date of Birth -->
     <ion-input [(ngModel)]="inputDOB" type="date"></ion-input><br>
 
     <!-- New Email -->
     <ion-input [(ngModel)]="inputNewEmail" type="email" label="New Email" label-placement="floating" fill="outline" helper-text="
-    Please enter an email address" error-text="Please enter your email address correctly"></ion-input><br>
+    Please enter an email address" error-text="Please enter your email address correctly" placeholder="Enter your same Email"></ion-input><br>
 
-    <ion-button color="light" (click)="goBack()" id="styleBackButton">Back</ion-button>
-    <ion-button [disabled]="forgotEmailDisabled" (click)="forgotEmail()" id="styleSubmitButton">Submit</ion-button>
+    </ion-card>
+  </div>
+
+  <div>
+    <!-- Back Button for navigate login page -->
+    <ion-button color="light" [routerLink]="['/login']" id="styleBackButton" shape="round">
+      <ion-icon slot="start" name="arrow-back-outline" style="margin-left: -50px; color:black;"></ion-icon>Back
+    </ion-button>
+
+    <!-- Submit Button for forgot email -->
+    <ion-button [disabled]="forgotEmailDisabled" (click)="forgotEmail()" id="styleSubmitButton" shape="round">
+      <ion-icon slot="start" name="person-outline" style="margin-left: -50px; color:black;"></ion-icon>Submit
+    </ion-button>
   </div>
 </ion-content>

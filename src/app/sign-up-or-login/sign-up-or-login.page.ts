@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { RouterLinkWithHref } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
@@ -10,27 +11,16 @@ import { Browser } from '@capacitor/browser';
   templateUrl: './sign-up-or-login.page.html',
   styleUrls: ['./sign-up-or-login.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon],
+  imports: [RouterLinkWithHref, IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon],
 })
-export class SignUpOrLoginPage implements OnInit{
+export class SignUpOrLoginPage{
   
   constructor(private router: Router) {
+    //Add the icons to the page
     addIcons({logoFacebook, logoInstagram, logoGithub, personOutline, logInOutline});
   }
 
-  ngOnInit() {
-  }
-
-  onSignUp() {
-    this.router.navigate(['/signup']);
-  }
-
-  onLogIn() {
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 2000);
-  }
-
+  //Browser plugin to open the social media links
   onInstagram(){
     Browser.open({ url: 'https://www.instagram.com/' });
   }
