@@ -5,7 +5,7 @@ name: Deploy to Firebase Hosting on merge
 on:
   push:
     branches:
-      - MAD2_Project2025
+      - main
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RSAHELPER_PWA }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RSA_HELPER_72C3A }}
           channelId: live
-          projectId: rsahelper-pwa
+          projectId: rsa-helper-72c3a
