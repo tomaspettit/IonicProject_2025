@@ -2,12 +2,21 @@ ion-card{
   background-color: #63F6F9;
 }
 
+ion-input{
+  font-size: 18px;
+  letter-spacing: 2.5px;
+}
+
+ion-textarea{
+  font-size: 18px;
+  letter-spacing: 2.5px;
+}
+
 #inputStyle{
   margin-top: 30px;
 }
 
 ion-button{
-  --background: orange;
   width: 180px;
   height: 50px;
   margin-left: 30px;

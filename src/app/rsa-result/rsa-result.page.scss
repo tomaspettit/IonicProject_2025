@@ -3,7 +3,7 @@ ion-button{
     height: 70px;
     margin-top: 20px;
     margin-left: 30px;
-    font-size: 15px;
+    font-size: 22px;
   }
   
   ion-content::part(background) {
@@ -25,5 +25,18 @@ ion-button{
 
   .resultCardStyle{
     background: #18BD0F;
+  }
+
+  ion-input{
+    font-size: 18px;
+    letter-spacing: 2.5px;
+    margin-top: 25px;
+  }
+
+  ion-textarea{
+    font-size: 18px;
+    letter-spacing: 2.5px;
+    margin-top: 25px;
+    height: auto;
   }
 

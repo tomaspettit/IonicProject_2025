@@ -3,12 +3,15 @@ ion-input{
     margin-left: 15px;
     background-color: white;
     margin-top: 45px;
+    font-size: 18px;
+    height: 60px;
+    letter-spacing: 2.5px;
 }
 
 .fe_CardStyle{
   background-color: #86E8AC;
   width: 92%;
-  height: 522px;
+  height: auto;
 }
 
 ion-button{
@@ -25,13 +28,13 @@ margin-top: 100px;
 }
 
 #styleBackButton{
-  color: orange;
   margin-top: 20px;
   margin-left: 10px;
+  text-indent: 25px;
 }
 
 #styleSubmitButton{
-  --background: orange;
   margin-top: 20px;
   margin-right: 10px;
+  text-indent: 25px;
 }

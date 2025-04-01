@@ -1,14 +1,15 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!-- Form of signing up for your account -->
   <div (change)="onInputChanged()">
     <ion-card>
-      <h1 style="font-weight: bold;">Sign In</h1>
-      <p>create your own MyRoadSafety account</p>
+      <h1 style="font-weight: bold; font-size: 35px;">Sign In</h1>
+      <p style="font-size: 25px;">create your own MyRoadSafety account</p>
 
       <!-- Email -->
       <br><ion-input id="inputStyle" [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" helper-text="
@@ -53,16 +54,16 @@
 
   <div>
     <!-- Back button for which page do you want to go back, like Sign Up or Login page or ONLY Login Page-->
-    <ion-button id="toast-back-to-where" shape="round" color="light">
-      <ion-icon slot="start" name="arrow-back-outline" style="margin-left: -80px; color:black;"></ion-icon>Back
+    <ion-button id="toast-back-to-where" shape="round" class="whiteBtn">
+      <ion-icon slot="start" name="arrow-back-outline" style="margin-left: -80px;"></ion-icon>Back
     </ion-button>
     <ion-toast trigger="toast-back-to-where" message="Back to Where?" swipeGesture="vertical" [duration]="5000" 
     [buttons]="toastBackButtons" icon="help-circle-outline" class="custom-toast"></ion-toast>
 
     <!-- Sign Up Button: after put down all the input boxes, your account has been 
      create from the storage so you can log in to your account-->
-    <ion-button [disabled]="signUpDisabled" (click)="register()" shape="round">
-      <ion-icon slot="start" name="person-outline" style="margin-left: -80px; color:black;"></ion-icon>Sign Up
+    <ion-button [disabled]="signUpDisabled" (click)="register()" shape="round" class="orangeBtn">
+      <ion-icon slot="start" name="person-outline" style="margin-left: -80px;"></ion-icon>Sign Up
     </ion-button>
   </div>
 </ion-content>

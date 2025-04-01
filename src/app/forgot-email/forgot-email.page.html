@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
     </ion-toolbar>
@@ -13,7 +13,6 @@
       </ion-card-header>
       <ion-card-content>
         Hint: This is the email address you used to register on MyRoadSafety
-        <p>{{myPPSN}}, {{myDOB}}, {{myNewEmail}}</p>
       </ion-card-content>
 
     <!-- What is your PPSN -->
@@ -32,13 +31,13 @@
 
   <div>
     <!-- Back Button for navigate login page -->
-    <ion-button color="light" [routerLink]="['/login']" id="styleBackButton" shape="round">
-      <ion-icon slot="start" name="arrow-back-outline" style="margin-left: -50px; color:black;"></ion-icon>Back
+    <ion-button class="whiteBtn" [routerLink]="['/login']" id="styleBackButton" shape="round">
+      <ion-icon slot="start" name="arrow-back-outline" style="margin-left: -50px;"></ion-icon>Back
     </ion-button>
 
-    <!-- Submit Button for forgot email -->
-    <ion-button [disabled]="forgotEmailDisabled" (click)="forgotEmail()" id="styleSubmitButton" shape="round">
-      <ion-icon slot="start" name="person-outline" style="margin-left: -50px; color:black;"></ion-icon>Submit
+    <!-- SIgn Up Button for forgot email -->
+    <ion-button [disabled]="forgotEmailDisabled" (click)="forgotEmail()" id="styleSubmitButton" shape="round" class="orangeBtn">
+      <ion-icon slot="start" name="person-outline" style="margin-left: -50px;"></ion-icon>Sign Up
     </ion-button>
   </div>
 </ion-content>

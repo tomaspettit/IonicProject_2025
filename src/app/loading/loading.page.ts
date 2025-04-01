@@ -12,7 +12,7 @@ import { IonContent, IonProgressBar} from '@ionic/angular/standalone';
   imports: [IonContent, IonProgressBar, CommonModule, FormsModule]
 })
 export class LoadingPage{
-  public progress = 0;
+  public progress = 0; // Starting with 0 like 0%
 
   constructor(private router: Router) {
     setInterval(() => {

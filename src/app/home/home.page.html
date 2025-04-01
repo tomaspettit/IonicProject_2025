@@ -1,18 +1,18 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
     </ion-toolbar>
   </ion-header>
     
       <!-- Introdution RSA Helper-->
-      <div>
+      <div style="font-family: 'Times New Roman', Times, serif;">
         <h1>Hello {{yourName}} & Welcome to RSA Helper</h1>
-        <p>Here you can check if you passed your driving test or not.</p>
+        <p style="font-size: 22px;">Here you can check if you passed your driving test or not.</p>
       </div>
     
         <!-- Grade Faults of how many faults did you get for failing your driving test-->
-        <div id="div1">
+        <div id="gradeFaults">
           <h3 style="text-decoration: underline;">Grade Faults:</h3>
           <ul *ngFor="let f of fault">
             <li><b>{{f.grade}}</b> {{f.para}}</li>
@@ -20,29 +20,29 @@
         </div>
     
         <!-- Hints => you can learn how to do better at driving-->
-        <div id="div2">
+        <div id="hints">
           <h3 style="text-decoration: underline;">Hints:</h3>
           <ul *ngFor="let h of hint">
             <li><b>{{h.name}}:</b> {{h.hintPara}}</li>
           </ul>
         </div>
     
-        <div>
+        <div style="margin-left: -55px;">
           <!-- Profile Button -->
-          <ion-button [routerLink]="['/profile']" shape="round">
+          <ion-button [routerLink]="['/profile']" shape="round" class="orangeBtn">
             <ion-icon slot="start" name="person-outline" class="profileIcons"></ion-icon>
             My Profile
           </ion-button>
 
           <!-- Result Button -->  
-          <ion-button [routerLink]="['/rsa-result']" color="light" shape="round">
-            <ion-icon slot="start" name="book-outline" class="profileIcons"></ion-icon>
+          <ion-button [routerLink]="['/rsa-result']" shape="round" class="whiteBtn">
+            <ion-icon slot="start" name="book-outline" class="resultIcon"></ion-icon>
             Result
           </ion-button>
 
           <!-- Log Out Button -->
-          <ion-button [routerLink]="['/loading']" shape="round">
-            <ion-icon slot="start" name="log-out-outline" class="profileIcons"></ion-icon>
+          <ion-button [routerLink]="['/loading']" shape="round" class="orangeBtn">
+            <ion-icon slot="start" name="log-out-outline" class="logOutIcon"></ion-icon>
             Log Out
           </ion-button>
         </div>

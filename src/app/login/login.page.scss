@@ -1,6 +1,8 @@
 ion-input{
     width: 90%;
     margin-left: 15px;
+    font-size: 18px;
+    letter-spacing: 2.5px;
 }
 
 div{
@@ -9,14 +11,19 @@ div{
 
 .movingRight{
     margin-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .styleLink{
-    margin-left: 75px;
+    margin-left: 70px;
+    font-size: 21px;
+    text-decoration: none;
 }
 
 .styleLink2{
-    margin-left: 40px;
+    margin-left: 35px;
+    font-size: 21px;
+    text-decoration: none;
 }
 
 ion-content::part(background) {
@@ -24,11 +31,6 @@ ion-content::part(background) {
   }
 
   ion-button{
-    --background: orange;
-    --background-hover: red;
-    --background-activated: red;
-    --background-focused: red;
-    border-radius: 50%;
     width: 379px;
     height: 75px;
     margin-left: 25px;

@@ -38,7 +38,6 @@ export class HomePage implements OnInit{
 
   async ionViewWillEnter() {
     // Load the user's details from the storage
-    await this.storage.create();
     this.yourName = await this.storage.get("name") || '';
     this.yourEmail = await this.storage.get("email") || '';
     this.yourDob = await this.storage.get("dob") || '';
@@ -62,7 +61,8 @@ export class HomePage implements OnInit{
       Browser.open({ url: 'https://github.com/login/' });
     }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.storage.create();
     this.http.GetFaultsAndHintsData().subscribe(
       (data)=>{
         this.fault=data.record.faults;

@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title size="large"><img src="assets/RSA_Helper.svg" width="75" height="75"/></ion-title>
     </ion-toolbar>
@@ -18,14 +18,15 @@
     
       <ion-card-content>
         <!-- If you dont have an account, please register first. -->
-        If you dont have an account, please <a [routerLink]="['/signup']">register</a> first.
+        If you dont have an account, please <a [routerLink]="['/signup']" style="text-decoration: none;">register</a>
+        first.
       </ion-card-content>
     </ion-card><br>
   </div>
   
   <!-- Login Form -->
   <div (change)="onInputChanged()">
-    <ion-card color="success">
+    <ion-card color="success" style="box-shadow: 10px -5px 15px rgb(0, 255, 0, 0.25);">
 
       <!-- Email and Password Input -->
     <br><ion-input [(ngModel)]="inputEmail" type="email" label="Email" label-placement="floating" fill="outline" 
@@ -36,8 +37,8 @@
   </ion-card>
 
     <!-- Login Button -->
-    <ion-button [disabled]="loginDisabled" (click)="loggedIn()" shape="round">
-      <ion-icon slot="start" name="log-in-outline" style="margin-left: -100px; color:black;"></ion-icon>Login
+    <ion-button [disabled]="loginDisabled" (click)="loggedIn()" shape="round" style="text-indent: 25px;" class="orangeBtn">
+      <ion-icon slot="start" name="log-in-outline" style="margin-left: -100px;"></ion-icon>Login
     </ion-button><br><br>
 
     <!-- Forget Email and Password -->
@@ -46,7 +47,7 @@
 
     <h1 style="text-align: center;">OR</h1>
     <!-- Register Button -->
-    <ion-button [routerLink]="['/signup']" color="light" shape="round">
+    <ion-button [routerLink]="['/signup']" class="whiteBtn" shape="round" style="text-indent: 25px;">
       <ion-icon slot="start" name="person-outline" style="margin-left: -50px; color:black;"></ion-icon>Register
     </ion-button>
   </div>

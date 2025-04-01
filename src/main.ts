@@ -8,7 +8,6 @@ import { RouterLinkWithHref } from '@angular/router';
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
-import { provideServiceWorker } from '@angular/service-worker';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -17,9 +16,6 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withPreloading(PreloadAllModules)),
     importProvidersFrom(IonicStorageModule.forRoot()),
     importProvidersFrom(RouterLinkWithHref),
-    importProvidersFrom(HttpClientModule), provideServiceWorker('ngsw-worker.js', {
-            enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          }),
+    importProvidersFrom(HttpClientModule), 
   ],
 });

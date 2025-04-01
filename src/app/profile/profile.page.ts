@@ -37,6 +37,7 @@ export class ProfilePage{
     addIcons({logoInstagram, logoFacebook, logoGithub, arrowBackOutline, logOutOutline});
   }
 
+  // Create storage
   async ionViewWillEnter() {
     await this.storage.create();
     this.yourName = await this.storage.get("name");
@@ -62,5 +63,4 @@ export class ProfilePage{
   onGitHub(){
     Browser.open({ url: 'https://github.com/login/' });
   }
-
 }

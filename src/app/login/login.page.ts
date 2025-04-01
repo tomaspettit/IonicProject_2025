@@ -1,13 +1,13 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonIcon} from '@ionic/angular/standalone';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, ToastController } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { addIcons } from 'ionicons';
-import { logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline } from 'ionicons/icons';
+import { logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline, alertCircleOutline, checkmarkCircleOutline } from 'ionicons/icons';
 import { Browser } from '@capacitor/browser';
 
 
@@ -20,7 +20,7 @@ import { Browser } from '@capacitor/browser';
     , IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonIcon
   ]
 })
-export class LoginPage{
+export class LoginPage implements OnInit{
   // Variables
   inputEmail: string = '';
   inputPassword: string = '';
@@ -32,16 +32,20 @@ export class LoginPage{
   // Disable Login Button by Default
   loginDisabled: boolean = true;
 
-  constructor(private router: Router, private storage: Storage) {
+  constructor(private router: Router, private storage: Storage, private toastController: ToastController) {
     // Add icons (social media login buttons)
-    addIcons({ logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline });
+    addIcons({ logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline, checkmarkCircleOutline, alertCircleOutline });
+  }
+
+  async ngOnInit(): Promise<void> {
+    await this.storage.create();
   }
 
   // Get stored email and password from storage
   async ionViewWillEnter() {
-    await this.storage.create();
     this.myEmail = await this.storage.get("email");
     this.myPassword = await this.storage.get("password");
+    console.log(this.myEmail + " " + this.myPassword);
   }
 
   // Input validation for email and password
@@ -53,15 +57,28 @@ export class LoginPage{
 
   // Attempt login
   async loggedIn() {
-    console.log('Input Email:', this.inputEmail);
-    console.log('Input Password:', this.inputPassword);
-
     // Secure password check (comparison to stored credentials)
-    if (this.inputEmail !== this.myEmail && this.inputPassword !== this.myPassword) {
-      alert('Invalid email or password. Please try again.');
-      this.loginDisabled = false; // Allow retry after failure
+    if (this.inputEmail !== this.myEmail || this.inputPassword !== this.myPassword) {
+      // Toast Controller for Same Email
+      const toast = await this.toastController.create({
+        message: 'Invalid email or password. Please try again.',
+        duration: 3000,
+        icon: alertCircleOutline,
+        swipeGesture:"vertical",
+        position:"bottom",
+        positionAnchor:"footer",
+      });
+      await toast.present();
     } else {
-      console.log('Login successful, navigating to home');
+      const toast = await this.toastController.create({
+        message: 'Login successful, navigating to home',
+        duration: 3000,
+        icon: checkmarkCircleOutline,
+        swipeGesture:"vertical",
+        position:"bottom",
+        positionAnchor:"footer",
+      });
+      await toast.present();
       this.router.navigate(['/home']);
       // Optionally clear the input fields
       this.inputEmail = '';

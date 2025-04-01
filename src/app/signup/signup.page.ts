@@ -1,12 +1,12 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonTextarea, 
-  IonCard, IonIcon, IonToast} from '@ionic/angular/standalone';
+  IonCard, IonIcon, IonToast, ToastController} from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { addIcons } from 'ionicons';
-import { arrowBackOutline, personOutline, helpCircleOutline} from 'ionicons/icons';
+import { arrowBackOutline, personOutline, helpCircleOutline, alertCircleOutline, checkmarkCircleOutline} from 'ionicons/icons';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { arrowBackOutline, personOutline, helpCircleOutline} from 'ionicons/icon
     , IonTextarea, IonCard, IonIcon, IonToast
   ]
 })
-export class SignupPage{
+export class SignupPage implements OnInit{
 
   // Disable sign up button until all fields are filled
   signUpDisabled: boolean = true;
@@ -38,15 +38,19 @@ export class SignupPage{
   //Same Email
   myEmail:string = '';
 
-  constructor(private router: Router, private storage: Storage) { 
+  constructor(private router: Router, private storage: Storage, private toastController: ToastController) { 
     // Add icons to the app
-    addIcons({ arrowBackOutline, personOutline, helpCircleOutline });
+    addIcons({ arrowBackOutline, personOutline, helpCircleOutline, alertCircleOutline, checkmarkCircleOutline });
+  }
+
+  async ngOnInit(): Promise<void> {
+    await this.storage.create();
   }
 
   // Create storage
   async ionViewWillEnter(){
-    await this.storage.create();
     this.myEmail = await this.storage.get('email');
+    console.log(this.myEmail);
   }
 
   // Check if all fields are filled and valid
@@ -83,14 +87,23 @@ export class SignupPage{
   
     // Enable the sign-up button if all validations pass
     this.signUpDisabled = !(emailValid && passwordValid && nameValid && phoneNoValid && addressValid &&
-      eircodeValid && carValid && dobValid && confirmPPSNValid && driverNoValid);
+      eircodeValid && carValid && dobValid && confirmPPSNValid && driverNoValid); // Sign Up Button NOT disable
   }
   
 
   // Register the user and store their data
   async register(){
     if(this.inputEmail == this.myEmail){
-      alert("Same Email. Try a different Email");
+      // Toast Controller for Same Email
+      const toast = await this.toastController.create({
+        message: 'Same Email. Try a different Email',
+        duration: 3000,
+        icon: alertCircleOutline,
+        swipeGesture:"vertical",
+        position:"bottom",
+        positionAnchor:"footer",
+      });
+      await toast.present();
       this.inputEmail = '';
     }else{
       // Store user data
@@ -105,8 +118,16 @@ export class SignupPage{
       await this.storage.set("ppsn", this.inputPPSN);
       await this.storage.set("driverNo", this.inputDriverNo);
 
-      console.log(this.inputEmail);
-      console.log(this.inputPassword);
+      // Toast Controller for completing your account
+      const toast = await this.toastController.create({
+        message: 'Sign Up Success',
+        duration: 3000,
+        icon: checkmarkCircleOutline,
+        swipeGesture:"vertical",
+        position:"bottom",
+        positionAnchor:"footer",
+      });
+      await toast.present();
 
       // Navigate to the login page
       this.router.navigate(['/login']).then(() => {

@@ -1,9 +1,5 @@
 /* Button Styles */
 ion-button{
-  --background: orange;
-  --background-hover: red;
-  --background-activated: red;
-  --background-focused: red;
   width: 200px;
   height: 100px;
   margin-top: 20px;
@@ -16,19 +12,27 @@ ion-content::part(background) {
   background: #cde7e4;
 }
 
-/* Div1 Styles */
-#div1{
+/* Grade Faults Styles */
+#gradeFaults{
   font-size: 20px;
   height: auto;
   background-image: linear-gradient(green 0%, blue 50%, red 100%);
   text-align: left;
   color: rgb(0, 0, 0);
+  padding: 15px;
 }
 
-/* Div2 Styles */
-#div2{
+/* Hints Styles */
+#hints{
   font-size: 20px;
   height:auto;
   background-image: radial-gradient(yellow 0%, white 75%);
   margin-top: 50px;
+  padding: 15px;
+}
+
+ion-button{
+  width: 300px;
+  height: auto;
+  font-size: 25px;
 }

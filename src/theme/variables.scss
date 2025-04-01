@@ -2,20 +2,24 @@
 // http://ionicframework.com/docs/theming/
 
 
+/* a (link) Style
 a{
   text-decoration: none;
   margin-right: 15px;
 }
 
+/* ion-button Style */
 ion-button{
     text-align: center;
-    --box-shadow: 10px -5px 15px rgb(0, 0, 0, 0.25);
+    --box-shadow: 10px -5px 15px rgba(0, 0, 0, 0.25);
   }
 
+  /* ion-content::part(background) Style*/
   ion-content::part(background) {
     background: #cde7e4;
   }
 
+/* ion-input Style */  
 ion-input{
     width: 300px;
     height: 50px;
@@ -25,10 +29,12 @@ ion-input{
     text-indent: 15px;
   }
 
+  /* ion-card Style */
   ion-card{
     padding: 10px;
   }
 
+  /* ion-textarea Style */
   ion-textarea{
     background-color: white;
     width: 350px;
@@ -37,6 +43,7 @@ ion-input{
     padding-left: 10px;
   }
 
+  /* Contact Icon (Social Media) */
   .contactIcon{
     width: 50px;
     height: 50px;
@@ -44,23 +51,40 @@ ion-input{
     margin-left: 45px;
   }
 
+  /* Contact Bottom Style */
   #bottomStyle{
     width: auto;
     height: auto;
     bottom: 0;
     background:rgba(166, 238, 250, 71%);
     margin-top: 100px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
   }
 
-  /* Paragraph Style */
-.profileHeading{
-  text-align: start;
-  font-size: 20px;
-}
-
-/* Icon Styles */
-.profileIcons{
+/* Result Icon Styles */
+.resultIcon{
   width: 40px;
   height: 40px;
   margin-left: -50px;
+}
+
+/* Log Out Icon Styles */
+.logOutIcon{
+  width: 40px;
+  height: 40px;
+  margin-left: -50px;
+}
+
+.orangeBtn{
+  --background: orange;
+  --background-activated: white;
+  --color-activated: orange;
+}
+
+.whiteBtn{
+  --background: white;
+  --color: black;
+  --background-activated: orange;
+  --color-activated: white;
 }
