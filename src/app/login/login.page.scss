@@ -1,3 +1,4 @@
+/* Input field styles */
 ion-input{
     width: 90%;
     margin-left: 15px;
@@ -5,31 +6,33 @@ ion-input{
     letter-spacing: 2.5px;
 }
 
+/* Div styles */
 div{
   font-size: 20px;
 }
 
+/* Div styles */
 .movingRight{
     margin-left: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
 
+/* Forgot Email Link styles */
 .styleLink{
     margin-left: 70px;
     font-size: 21px;
     text-decoration: none;
+    --color-hover: red;
 }
 
+/* Forgot Password Link styles */
 .styleLink2{
     margin-left: 35px;
     font-size: 21px;
     text-decoration: none;
 }
 
-ion-content::part(background) {
-    background: #cde7e4;
-  }
-
+/* Button styles */
   ion-button{
     width: 379px;
     height: 75px;

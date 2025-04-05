@@ -1,3 +1,4 @@
+// IMPORTS
 import { Component, OnInit} from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -38,6 +39,7 @@ export class ForgotEmailPage implements OnInit{
     addIcons({arrowBackOutline, personOutline, alertCircleOutline, checkmarkCircleOutline });  
   }
 
+  // Create the storage instance
   async ngOnInit(): Promise<void> {
     await this.storage.create();
   }
@@ -47,7 +49,7 @@ export class ForgotEmailPage implements OnInit{
     this.myPPSN = await this.storage.get('ppsn');
     this.myDOB = await this.storage.get('dob');
     this.myNewEmail = await this.storage.get('email');
-    console.log(this.myPPSN + " " + this.myDOB + " " + this.myNewEmail)
+    console.log("Forgot Email: " + this.myPPSN + " " + this.myDOB + " " + this.myNewEmail)
   }
 
   // Check if the input fields have changed
@@ -71,6 +73,8 @@ export class ForgotEmailPage implements OnInit{
         positionAnchor:"footer",
       });
       await toast.present();
+    
+    // Check if both emails are the same
     }else if(this.inputNewEmail == this.myNewEmail){
       const toast = await this.toastController.create({
         message: 'Same Email. Try a different Email.',
@@ -81,6 +85,8 @@ export class ForgotEmailPage implements OnInit{
         positionAnchor:"footer",
       });
       await toast.present();
+    
+    // Successful Email Change
     }else{
       await this.storage.set('email', this.inputNewEmail);
 

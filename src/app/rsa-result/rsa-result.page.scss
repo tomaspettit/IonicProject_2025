@@ -1,3 +1,4 @@
+/* Button Styles */
 ion-button{
     width: 40%;
     height: 70px;
@@ -5,34 +6,35 @@ ion-button{
     margin-left: 30px;
     font-size: 22px;
   }
-  
-  ion-content::part(background) {
-    background: #cde7e4;
-  }
 
  #footerStyle{
     --background:rgba(166, 238, 250, 71%);
   }
 
+  /* div Styles */
   div{
     font-size: 20px;
   }
 
+  /* Icon Styles */
   ion-icon{
     width: 35px;
     height: 35px;
   }
 
+  /* Card Styles */
   .resultCardStyle{
     background: #18BD0F;
   }
 
+  /* Input Styles */
   ion-input{
     font-size: 18px;
     letter-spacing: 2.5px;
     margin-top: 25px;
   }
 
+  /* Textarea Styles */
   ion-textarea{
     font-size: 18px;
     letter-spacing: 2.5px;

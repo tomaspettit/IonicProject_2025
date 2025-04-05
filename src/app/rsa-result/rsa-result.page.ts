@@ -1,3 +1,4 @@
+//IMPORTS
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -76,6 +77,7 @@ export class RSAResultPage{
 
   // Your Result has been sent, and back to Home Page
   async clickResult() {
+    // Check if the any input is empty or not
     if(this.inputName != this.myName || this.inputDriverNo != this.myDriverNo || this.inputDOB != this.myDOB ||
       this.inputEmail != this.myEmail || this.inputCategory != this.myCategory || this.inputPPSN != this.myPPSN){
         const toast = await this.toastController.create({
@@ -87,6 +89,8 @@ export class RSAResultPage{
           positionAnchor:"footer",
         });
         await toast.present();
+
+      // RSA Result has been sent
       }else{
         const toast = await this.toastController.create({
           message: 'Your RSA result has been sent. Thank you.',

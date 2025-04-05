@@ -14,14 +14,13 @@
   color: white;
 }
 
-b{
+/* Bold Text Style */
+#boldStyle{
+  color: blue;
   font-family: 'Times New Roman', Times, serif;
 }
 
-#boldStyle{
-  color: blue;
-}
-
+/* Card Style */
 ion-card{
   --background: orange;
   box-shadow: 10px -5px 15px rgba(0, 0, 0, 0.25);
@@ -34,6 +33,7 @@ ion-card{
   margin-left: -50px;
 }
 
+/* Home Button Style */
 .homeBtn{
   --color: black;
   --background-activated: orange;

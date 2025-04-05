@@ -1,3 +1,4 @@
+//IMPORTS
 import { Component, OnInit} from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -37,6 +38,7 @@ export class LoginPage implements OnInit{
     addIcons({ logoInstagram, logoFacebook, logoGithub, logInOutline, personOutline, checkmarkCircleOutline, alertCircleOutline });
   }
 
+  // Create storage instance
   async ngOnInit(): Promise<void> {
     await this.storage.create();
   }
@@ -45,7 +47,7 @@ export class LoginPage implements OnInit{
   async ionViewWillEnter() {
     this.myEmail = await this.storage.get("email");
     this.myPassword = await this.storage.get("password");
-    console.log(this.myEmail + " " + this.myPassword);
+    console.log("Login: " + this.myEmail + " " + this.myPassword);
   }
 
   // Input validation for email and password
@@ -58,8 +60,7 @@ export class LoginPage implements OnInit{
   // Attempt login
   async loggedIn() {
     // Secure password check (comparison to stored credentials)
-    if (this.inputEmail !== this.myEmail || this.inputPassword !== this.myPassword) {
-      // Toast Controller for Same Email
+    if (this.inputEmail != this.myEmail || this.inputPassword != this.myPassword) {
       const toast = await this.toastController.create({
         message: 'Invalid email or password. Please try again.',
         duration: 3000,
@@ -69,6 +70,8 @@ export class LoginPage implements OnInit{
         positionAnchor:"footer",
       });
       await toast.present();
+
+    // Login successful
     } else {
       const toast = await this.toastController.create({
         message: 'Login successful, navigating to home',
@@ -80,6 +83,7 @@ export class LoginPage implements OnInit{
       });
       await toast.present();
       this.router.navigate(['/home']);
+      
       // Optionally clear the input fields
       this.inputEmail = '';
       this.inputPassword = '';

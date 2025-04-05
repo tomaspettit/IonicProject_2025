@@ -1,33 +1,37 @@
+/* Card styles */
 ion-card{
   background-color: #63F6F9;
 }
 
-ion-input{
-  font-size: 18px;
-  letter-spacing: 2.5px;
-}
 
+/* Textarea styles */
 ion-textarea{
   font-size: 18px;
   letter-spacing: 2.5px;
 }
 
+/* Input styles */
 #inputStyle{
+  font-size: 18px;
+  letter-spacing: 2.5px;
   margin-top: 30px;
 }
 
+/* Button styles */
 ion-button{
   width: 180px;
   height: 50px;
   margin-left: 30px;
 }
 
+/* Contact icon styles */
 ion-icon{
   width: 30px;
   height: 30px;
   padding: 20px;
 }
 
+/* Toast styles */
 ion-toast.custom-toast {
   --background: rgb(248, 189, 80);
   --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);

@@ -5,10 +5,12 @@ ion-progress-bar{
     border-radius: 7.5px;
 }
 
+/* Ion Content Background */
 ion-content::part(background) {
   background: #fbfbfb;
 }
 
+/* Div Style */
 .container {
     display: flex;
     flex-direction: column;
@@ -18,16 +20,19 @@ ion-content::part(background) {
     position: relative;
   }
   
+  /* Top Eclipse */
   .top-eclipse {
     position: absolute;
     top: 0;
   }
   
+  /* Bottom Eclipse */
   .bottom-eclipse {
     position: absolute;
     bottom: 0;
   }
   
+  /* Left Eclipse */
   .left-eclipse {
     position: absolute;
     left: 0;
@@ -35,6 +40,7 @@ ion-content::part(background) {
     transform: translateY(-50%);
   }
   
+  /* Right Eclipse */
   .right-eclipse {
     position: absolute;
     right: 0;
@@ -42,6 +48,7 @@ ion-content::part(background) {
     transform: translateY(-50%);
   }
   
+  /* Center Content */
   .center-content {
     display: flex;
     flex-direction: column;

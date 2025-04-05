@@ -1,3 +1,4 @@
+//IMPORTS
 import { Component, OnInit} from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon} from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
@@ -28,6 +29,7 @@ export class HomePage implements OnInit{
   yourEircode: string = '';
   yourCategory: string = '';
 
+  // Variables to store the faults and hints data
   fault:any[]=[];
   hint:any[]=[];
 
@@ -36,6 +38,7 @@ export class HomePage implements OnInit{
     addIcons({logoInstagram, logoFacebook, logoGithub, personOutline, logOutOutline, bookOutline});
   }
 
+  // Get the user's details from the storage when the page is loaded
   async ionViewWillEnter() {
     // Load the user's details from the storage
     this.yourName = await this.storage.get("name") || '';
@@ -61,6 +64,7 @@ export class HomePage implements OnInit{
       Browser.open({ url: 'https://github.com/login/' });
     }
 
+  // Faults and Hints functions
   async ngOnInit(): Promise<void> {
     await this.storage.create();
     this.http.GetFaultsAndHintsData().subscribe(

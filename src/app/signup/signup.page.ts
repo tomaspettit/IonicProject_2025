@@ -1,3 +1,4 @@
+//IMPORTS
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -43,11 +44,12 @@ export class SignupPage implements OnInit{
     addIcons({ arrowBackOutline, personOutline, helpCircleOutline, alertCircleOutline, checkmarkCircleOutline });
   }
 
+  // Create storage instance
   async ngOnInit(): Promise<void> {
     await this.storage.create();
   }
 
-  // Create storage
+  // Check if the user is already logged in
   async ionViewWillEnter(){
     this.myEmail = await this.storage.get('email');
     console.log(this.myEmail);
@@ -105,6 +107,7 @@ export class SignupPage implements OnInit{
       });
       await toast.present();
       this.inputEmail = '';
+      
     }else{
       // Store user data
       await this.storage.set("email", this.inputEmail);
