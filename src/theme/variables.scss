@@ -83,3 +83,20 @@ ion-input{
   --background-activated: orange;
   --color-activated: white;
 }
+
+/* Toast styles */
+ion-toast {
+  --background: rgb(248, 189, 80);
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #4b4a50;
+}
+
+ion-toast::part(message) {
+  font-style: italic;
+}
+
+ion-toast::part(button) {
+  border-left: 1px solid #373232;
+  color: white;
+  font-size: 15px;
+}

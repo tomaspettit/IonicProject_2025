@@ -50,11 +50,9 @@ export class ForgotPasswordPage implements OnInit{
 
   // Check if input fields are empty
   checkInputChanged() {
-    if (this.inputEmail != '' && this.inputNewPassword != '') {
-      this.forgotPasswordDisabled = false; // Sign Up Button NOT disable
-    } else {
-      this.forgotPasswordDisabled = true; // Sign Up Button disable
-    }
+    const emailValid = this.inputEmail.includes('@') && (this.inputEmail.endsWith('.com') || this.inputEmail.endsWith('.ie')); // Basic email validation
+    const passwordValid = this.inputNewPassword.length >= 5; // Adjust password strength requirements as needed
+    this.forgotPasswordDisabled = !(emailValid && passwordValid); // Disable the button if any field is invalid
   }
 
   // Forgot password

@@ -52,7 +52,7 @@ export class LoginPage implements OnInit{
 
   // Input validation for email and password
   onInputChanged() {
-    const emailValid = this.inputEmail.includes('@');
+    const emailValid = this.inputEmail.includes('@') && (this.inputEmail.endsWith('.com') || this.inputEmail.endsWith('.ie')); // Basic email validation
     const passwordValid = this.inputPassword.length >= 5; // Adjust password strength requirements as needed
     this.loginDisabled = !(emailValid && passwordValid);
   }

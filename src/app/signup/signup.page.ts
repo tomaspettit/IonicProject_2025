@@ -58,7 +58,7 @@ export class SignupPage implements OnInit{
   // Check if all fields are filled and valid
   onInputChanged() {
     // Email validation
-    const emailValid = this.inputEmail.includes('@');
+    const emailValid = this.inputEmail.includes('@') && (this.inputEmail.endsWith('.com') || this.inputEmail.endsWith('.ie'));
   
     // Password validation (at least one uppercase, one digit, and one special character)
     const passwordValid = this.inputPassword.length >= 4;
@@ -95,7 +95,20 @@ export class SignupPage implements OnInit{
 
   // Register the user and store their data
   async register(){
-    if(this.inputEmail == this.myEmail){
+    if(this.inputEmail == '')
+      {
+        // Toast Controller for Empty Email
+        const toast = await this.toastController.create({
+          message: 'Please fill email',
+          duration: 3000,
+          icon: alertCircleOutline,
+          swipeGesture:"vertical",
+          position:"bottom",
+          positionAnchor:"footer",
+        });
+        await toast.present();
+      }
+    else if(this.inputEmail == this.myEmail){
       // Toast Controller for Same Email
       const toast = await this.toastController.create({
         message: 'Same Email. Try a different Email',

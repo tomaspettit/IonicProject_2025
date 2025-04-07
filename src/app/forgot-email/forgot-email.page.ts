@@ -54,11 +54,10 @@ export class ForgotEmailPage implements OnInit{
 
   // Check if the input fields have changed
   checkInputChanged() {
-    if (this.inputPPSN != '' && this.inputDOB != '' && this.inputNewEmail != '') {
-      this.forgotEmailDisabled = false; // Sign Up Button NOT disable
-    } else {
-      this.forgotEmailDisabled = true; // Sign Up Button disable
-    }
+    const emailValid = this.inputNewEmail.includes('@') && (this.inputNewEmail.endsWith('.com') || this.inputNewEmail.endsWith('.ie')); // Basic email validation
+    const confirmPPSNValid = this.inputPPSN.length >= 5; // Adjust PPSN strength requirements as needed
+    const dobValid = this.inputDOB.length >= 6; // Adjust DOB strength requirements as needed
+    this.forgotEmailDisabled = !(emailValid && confirmPPSNValid && dobValid); // Disable the button if any field is invalid
   }
 
   // Check if the input fields are valid

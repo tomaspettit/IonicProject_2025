@@ -60,7 +60,7 @@ export class RSAResultPage{
 
   // When the all the input boxes has been set, the submit button will be undisabled
   onInputChangeForResult(){
-    if(this.inputName.length >= 5 && this.inputCategory.length == 1 && this.inputDOB.length >= 6 && this.inputEmail.includes('@') 
+    if(this.inputName.length >= 5 && this.inputCategory.length == 1 && this.inputDOB.length >= 6 && this.inputEmail.includes('@') && (this.inputEmail.endsWith('.com') || this.inputEmail.endsWith('.ie'))
       && this.inputPPSN.length >= 4 && this.inputDriverNo.length >= 5 && this.inputDTC.length >= 4 && this.inputImageLink != "" && this.inputExplain != ""){
       this.disabledSubmitBtn = false; // Submit Button NOT disable
     }else{

@@ -7,11 +7,14 @@
 
   <!-- Start of the page -->
   <div id="topStyle">
-    <h1 style="font-size: 50px;">Sign Up or Log In</h1>
+    <h1 class="headingStyle">Hello, would you like to Sign Up or Log In?</h1>
+
     <ion-button [routerLink]="['/signup']" size="large" shape="round" class="orangeBtn">
       <ion-icon slot="start" name="person-outline" style="margin-left: -100px;"></ion-icon>
       Sign Up</ion-button>
+
     <h1 style="font-size: 50px; margin-top:75px;">OR</h1>
+    
     <ion-button [routerLink]="['/login']" size="large" shape="round" class="whiteBtn">
       <ion-icon slot="start" name="log-in-outline" style="margin-left: -100px;"></ion-icon>
       Log In</ion-button>

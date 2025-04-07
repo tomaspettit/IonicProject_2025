@@ -1,3 +1,4 @@
+/* Input Style */
 ion-input{
     width: 90%;
     margin-left: 15px;
@@ -8,31 +9,39 @@ ion-input{
     letter-spacing: 2.5px;
 }
 
+/* Forgot Email Card Style */
 .fe_CardStyle{
   background-color: #86E8AC;
   width: 92%;
   height: auto;
 }
 
+/* Button Style */
 ion-button{
-  width: 180px;
-  margin-left: 30px;
+  margin-left: 20px;
+  width: 185px;
+  font-size: 23px;
+  margin-top: 45px;
 }
 
+/* Heading 2 Style */
 h2{
   margin-top: 20px;
 }
 
+/* div Style */
 div{
-margin-top: 100px;
+margin-top: 85px;
 }
 
+/* Back Button Style */
 #styleBackButton{
   margin-top: 20px;
   margin-left: 10px;
   text-indent: 25px;
 }
 
+/* Submit Button Style */
 #styleSubmitButton{
   margin-top: 20px;
   margin-right: 10px;

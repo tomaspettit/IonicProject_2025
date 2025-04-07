@@ -29,19 +29,23 @@
       <!-- What is your PPSN -->
       <ion-input [(ngModel)]="inputPPSN" label="PPSN" label-placement="floating" fill="outline" placeholder="Enter your own PPSN"></ion-input><br>
 
-      <!-- What is your Driving Test Centre location when your doing your driving test -->
-      <ion-input [(ngModel)]="inputDTC" label="Driving Test Centre" placeholder="Name a county or town for what you did during your driving test" 
+      <!-- Name a county or town for what you did during your driving test. Eg. Roscommon -->
+      <ion-input [(ngModel)]="inputDTC" label="Driving Test Centre" placeholder="Enter your own Driving Test Centre" label-placement="floating" fill="outline"
       label-placement="floating" fill="outline"></ion-input><br>
 
       <!-- Image Link for getting your results -->
       <!-- Use this website: https://sigmawire.net/image-to-url-converter to turn your image into a url image link, 
       copy it and paste it in the input Image Link so the your image will be displayed -->
+      <!-- Or another website
+          Postimages: https://postimg.cc/mtVvV6Rh/024ed659
+
+       -->
       <ion-input [(ngModel)]="inputImageLink" name="inputImageLink" label="Image Link" label-placement="floating" 
-        fill="outline" placeholder="Enter your image link by using" style="height:auto;">
+        fill="outline" placeholder="Enter your image link by using" style="height:auto;" [clearOnEdit]="true">
       </ion-input><br>
 
       <!-- Explain for what mistakes did you made when doing your driving test -->
-      <ion-textarea [(ngModel)]="inputExplain" style="color:black;" placeholder="Explanation of how did you make mistakes during your driving test" [autoGrow]="true"></ion-textarea>
+      <ion-textarea [(ngModel)]="inputExplain" style="color:black;" placeholder="Enter your explantion" [autoGrow]="true"></ion-textarea>
 
     </ion-card>
 

@@ -17,17 +17,17 @@ ion-content::part(background) {
   background-image: linear-gradient(green 0%, blue 50%, red 100%);
   text-align: left;
   color: rgb(0, 0, 0);
-  padding: 15px;
+  padding: 20px;
 }
 
 /* Hints Styles */
 #hints{
   font-size: 20px;
-  width: 450px;
   height:auto;
+  text-align: left;
   background-image: radial-gradient(yellow 0%, white 75%);
   margin-top: 50px;
-  padding: 15px;
+  padding: 20px;
 }
 
 /* Button Styles */
