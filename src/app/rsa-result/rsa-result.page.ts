@@ -55,7 +55,7 @@ export class RSAResultPage{
     this.myEmail = await this.storage.get("email");
     this.myCategory = await this.storage.get("category");
     this.myPPSN = await this.storage.get("ppsn");
-    console.log(this.myName+" "+this.myDriverNo+" "+this.myDOB+" "+this.myEmail+" "+this.myCategory+" "+this.myPPSN);
+    console.log("RSA Result: " + this.myName+" "+this.myDriverNo+" "+this.myDOB+" "+this.myEmail+" "+this.myCategory+" "+this.myPPSN);
   }
 
   // When the all the input boxes has been set, the submit button will be undisabled

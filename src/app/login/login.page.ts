@@ -83,11 +83,24 @@ export class LoginPage implements OnInit{
       });
       await toast.present();
       this.router.navigate(['/home']);
-      
-      // Optionally clear the input fields
-      this.inputEmail = '';
-      this.inputPassword = '';
+      this.clearOnInput(); // Clear input fields after successful login
     }
+  }
+
+  onForgotEmail(){
+    this.router.navigate(['/forgot-email']);
+    this.clearOnInput();
+  }
+
+  onForgotPassword(){
+    this.router.navigate(['/forgot-password']);
+    this.clearOnInput();
+  }
+
+  clearOnInput(){
+    // Optionally clear the input fields
+    this.inputEmail = '';
+    this.inputPassword = '';
   }
 
   // Browser links

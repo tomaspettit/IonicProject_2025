@@ -45,7 +45,6 @@ export class ProfilePage{
 
   // Get the user's details from the storage when the page is loaded
   async ionViewWillEnter() {
-    await this.storage.create();
     this.yourName = await this.storage.get("name");
     this.yourEmail = await this.storage.get("email");
     this.yourDob = await this.storage.get("dob");

@@ -42,8 +42,8 @@
     </ion-button><br><br>
 
     <!-- Forget Email and Password -->
-    <a [routerLink]="['/forgot-email']" class="styleLink">Forget Email</a>
-    <a [routerLink]="['/forgot-password']" class="styleLink2">Forget Password</a><br><br>
+    <a (click)="onForgotEmail()" class="styleLink">Forget Email</a>
+    <a (click)="onForgotPassword()" class="styleLink2">Forget Password</a><br><br>
 
     <h1 style="text-align: center;">OR</h1>
     <!-- Register Button -->
