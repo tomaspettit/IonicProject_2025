@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 //IMPORTS
+import { Component, OnInit } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +38,12 @@ export class ProfilePage{
     addIcons({logoInstagram, logoFacebook, logoGithub, arrowBackOutline, logOutOutline});
   }
 
-  // Create storage
+  // Create the storage instance
+  async ngOnInit(): Promise<void> {
+    await this.storage.create();
+  }
+
+  // Get the user's details from the storage when the page is loaded
   async ionViewWillEnter() {
     await this.storage.create();
     this.yourName = await this.storage.get("name");

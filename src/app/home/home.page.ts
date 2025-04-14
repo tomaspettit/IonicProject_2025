@@ -40,15 +40,9 @@ export class HomePage implements OnInit{
 
   // Get the user's details from the storage when the page is loaded
   async ionViewWillEnter() {
-    // Load the user's details from the storage
-    this.yourName = await this.storage.get("name") || '';
-    this.yourEmail = await this.storage.get("email") || '';
-    this.yourDob = await this.storage.get("dob") || '';
-    this.yourPPSN = await this.storage.get("ppsn") || '';
-    this.yourPhoneNo = await this.storage.get("phoneNo") || '';
-    this.yourAddress = await this.storage.get("address") || '';
-    this.yourEircode = await this.storage.get("eircode") || '';
-    this.yourCategory = await this.storage.get("category") || '';
+    // Load your name from the storage
+    this.yourName = await this.storage.get("name");
+    console.log("Home: " + this.yourName);
   }
 
   // Browser functions to open the social media links

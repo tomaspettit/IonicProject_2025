@@ -52,7 +52,7 @@ export class SignupPage implements OnInit{
   // Check if the user is already logged in
   async ionViewWillEnter(){
     this.myEmail = await this.storage.get('email');
-    console.log(this.myEmail);
+    console.log("Sign Up: " + this.myEmail);
   }
 
   // Check if all fields are filled and valid
