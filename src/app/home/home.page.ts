@@ -16,6 +16,7 @@ import { HttpService } from '../Services/http.service';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  standalone: true,
   imports: [RouterLinkWithHref, CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon]
 })
 export class HomePage implements OnInit{
